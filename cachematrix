@@ -1,0 +1,30 @@
+#So our assignment is to convert previous code to the matrix (inverse)
+MakeMatrix <- function(matr = matrix()) {
+#first function takes argument as matr - matrix
+ firstvar <-NULL
+ set<-function(c){
+#then we take first var that equal NULL, we are taking func set with c (c from the previous lecture) 
+  matr<<-c
+  firstvar <<-NULL
+}
+ get<- function()matr
+ persolving<-function(inverse)firstvar<<-inverse
+ getsolve<-function()firstvar
+ list(set=set, get=get, persolving=persolving, getsolve=getsolve)
+}
+#this func will check firstly if matrix is inversed or not
+
+SolveFunc<-function(matr,...){
+ firstvar<-matr$getsolve()
+ if(!is.null(firstvar)){
+ message("error")
+ return(matr)
+}
+ data<-matr$get()
+ firstvar<-solve(data, ...)
+ matr$persolving(firstvar)
+ firstvar
+}
+FirstMatr<- makematrix(matrix(1:4,2,2))
+FirstMatr$get()
+FirstMatr$getsolve()
